@@ -8,7 +8,7 @@ module.exports = function(router){
 //http://localhost:4444/admin/add/?username=test&password=test
     router.post('/admin/add', adminController.createAdmin);
 //http://localhost:4444/admin/delete/?username=7
-    router.delete('/admin/delete/', adminController.deleteAdmin);
+    router.delete('/admin/delete/:id', adminController.deleteAdmin);
 //http://localhost:4444/admin/update?username=test&password=123
      router.put('/admin/update', adminController.updateAdmin);
 }

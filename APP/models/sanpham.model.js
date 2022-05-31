@@ -87,3 +87,5 @@ SanPham.update = function (data, result){
 }
 
 module.exports = SanPham;
+
+//SELECT id_sanpham, SUM(soluongmua)as 'soluong' FROM tbl_chitietgiohang GROUP BY id_sanpham ORDER BY 'soluong' DESC LIMIT 1;

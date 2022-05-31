@@ -38,8 +38,8 @@ exports.createAdmin = function (req, res){
 }
 
 exports.deleteAdmin = function (req, res){
-    var username = req.query.username;
-    Admin.removeAdmin(username, function(data){
+    var id = req.params.id;
+    Admin.removeAdmin(id, function(data){
         res.send({ results: data });
     });
 }

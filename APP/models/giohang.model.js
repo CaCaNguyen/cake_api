@@ -36,14 +36,19 @@ GioHang.getGioHangByIdKhachHang = function (id_khachhang, result){
 GioHang.addGioHang = function (data, result){
     console.log(data);
     db.query("INSERT INTO tbl_giohang (id_khachhang, trangthai, ngaynhanhang) VALUE (?,?,?)", 
-    [data.id_khachhang, data.trangthai, data.ngaylap], 
+    [data.id_khachhang, data.trangthai, data.ngaynhanhang] ,
     function(err, giohang){
-        if(err){
-            result(err,null);
-        }else{
-            result(data);
+        db.query("INSERT INTO tbl_chitietgiohang (id_sanpham, magiohang, soluongmua, size) VALUE (?,?,?,?)", 
+        [data.id_sanpham, data.magiohang, data.soluongmua, data.size], function(err, giohang){
+            {
+            if(err){
+                result(err,null);
+            }else{
+                result(data);
+            }
         }
-    });
+        });    
+});
 }
 
 GioHang.removeGioHang = function (id, result){

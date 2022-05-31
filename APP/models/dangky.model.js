@@ -10,7 +10,7 @@ const DangKy = function (dangky){
 }
 
 DangKy.getAllList = function (result){
-    db.query("SELECT * FROM tbl_dangky", function(err, dangky){
+    db.query("SELECT `id_dangky`,`tenkhachhang`,`email`,`sdt` FROM `tbl_dangky`", function(err, dangky){
         if (err) {
             result(null);
             return;

@@ -22,9 +22,13 @@ exports.createGioHang = function (req, res){
     console.log('request data: ', req.bodyParser);
     console.log('id_khachhang:', req.query.id_khachhang);
     console.log('trangthai:' , req.query.trangthai);
-    console.log('ngaylap:', req.query.ngaylap);
-    
-    if (req.query.id_khachhang == null || req.query.ngaylap == null){
+    console.log('ngaynhan:', req.query.ngaynhanhang);
+    //them
+    console.log('id_sanpham:', req.query.id_sanpham);
+    console.log('magiohang:', req.query.magiohang);
+    console.log('soluongmua', req.query.soluongmua);
+    console.log('size', req.query.size);
+    if (req.query.id_khachhang == null || req.query.ngaynhanhang == null){
         res.send({ 'data': null, 'errorCode': res.errorCode });
     }else{
         GioHang.addGioHang(req.query, function(response){

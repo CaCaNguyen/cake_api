@@ -43,12 +43,12 @@ Admin.addAdmin = function (data, result){
     });
 }
 
-Admin.removeAdmin = function (username, result){
-    db.query("DELETE FROM tbl_admin WHERE username = ?", username , function (err, admin){
+Admin.removeAdmin = function (id, result){
+    db.query("DELETE FROM tbl_admin WHERE id_admin = ?", id , function (err, admin){
         if (err || admin.length == 0) {
             result(err,null);
         }else{
-            result("Xoa thanh cong du lieu co username = "+username+ "!");
+            result("Xoa thanh cong du lieu co username = "+id+ "!");
         }
     });
 }

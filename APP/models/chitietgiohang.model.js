@@ -22,7 +22,7 @@ ChiTietGioHang.getAllList = function (result){
 
 ChiTietGioHang.getChiTietGioHangByIdGioHang = function (magiohang, result){
     console.log(magiohang);
-    db.query("SELECT * FROM tbl_chitietgiohang WHERE magiohang = ?", magiohang, function(err, chitietgiohang){
+    db.query("SELECT `id_chitietgiohang`, `magiohang`,`tbl_sanpham`.`tensanpham` ,`soluongmua`,`size` FROM tbl_chitietgiohang INNER JOIN tbl_sanpham ON tbl_chitietgiohang.id_sanpham = tbl_sanpham.id_sanpham WHERE magiohang = ?", magiohang, function(err, chitietgiohang){
       console.log(chitietgiohang);
         if (err || chitietgiohang.length == 0) {
             result(err,null);
